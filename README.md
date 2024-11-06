@@ -1,0 +1,1 @@
+# Tabular_data_Generation_Using_CTGAN

@@ -21,4 +21,7 @@ Execute the main script to train the CTGAN model and generate synthetic data:
 ```bash
    python data_gen.py
 
+3. **Run the Script:**
+# CTGAN Synthetic Data Generation
+
 ![Real Data From PIMA Daatset](Real_data_Sample.png)

@@ -29,7 +29,7 @@ The **PIMA Indian Diabetes Dataset** is a popular dataset used for classificatio
 
 ## Dataset Overview
 
-- **Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/diabetes)
+- **Source**: [UCI Machine Learning Repository](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
 - **Task**: Binary classification (predict whether a person has diabetes or not)
 - **Number of Instances**: 768
 - **Number of Features**: 8 input features
@@ -61,7 +61,7 @@ The **PIMA Indian Diabetes Dataset** is a popular dataset used for classificatio
 
 - **Imbalance**: The dataset is imbalanced, with approximately **34.9%** of the instances being positive (Outcome = 1).
 - **Data Type**: All features are numeric, and the target variable (Outcome) is binary.
-
+- **Data Sample**: See the image below for an example of the data.
 
 ![Real Data From PIMA Daatset](Real_data_Sample.png)
 

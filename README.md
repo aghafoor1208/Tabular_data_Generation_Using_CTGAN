@@ -1,6 +1,6 @@
-# Tabular_data_Generation_Using_CTGAN
+# Tabular Data Generation Using CTGAN
 
-# CTGAN Synthetic Data Generation
+
 
 **Overview**
 

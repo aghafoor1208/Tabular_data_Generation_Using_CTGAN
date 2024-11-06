@@ -153,4 +153,4 @@ Using **CTGAN** to generate synthetic tabular data is an effective way to augmen
 
 ## References
 
-- [Conditional Generative Adversarial Networks (CTGAN)](https://arxiv.org/abs/1703.06490)
+- [Modeling Tabular Data using Conditional GAN](https://proceedings.neurips.cc/paper_files/paper/2019/file/254ed7d2de3b23ab10936522dd547b78-Paper.pdf)

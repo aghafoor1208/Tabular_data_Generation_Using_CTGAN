@@ -1,3 +1,3 @@
 # Tabular_data_Generation_Using_CTGAN
 
-head -n 10 Pima_Indians_Diabetes_Database.csv
+![Real Data From PIMA Daatset](Real_Data_Sample.png)

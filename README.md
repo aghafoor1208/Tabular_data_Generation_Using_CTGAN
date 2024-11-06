@@ -10,6 +10,15 @@ This repository contains a project demonstrating the use of CTGAN (Conditional T
 
 1. **Clone the Repository:**
    ```bash
-   git clone [invalid URL removed]
+   git clone [url]
+
+2. **install CTGAN:**
+   ```bash
+   pip install ctgan
+
+3. **Run the Script:**
+Execute the main script to train the CTGAN model and generate synthetic data:
+```bash
+   python data_gen.py
 
 ![Real Data From PIMA Daatset](Real_data_Sample.png)

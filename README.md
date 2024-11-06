@@ -61,72 +61,96 @@ The **PIMA Indian Diabetes Dataset** is a popular dataset used for classificatio
 
 - **Imbalance**: The dataset is imbalanced, with approximately **34.9%** of the instances being positive (Outcome = 1).
 - **Data Type**: All features are numeric, and the target variable (Outcome) is binary.
-- **Data Sample**: See the image below for an example of the data.
 
-![Real Data From PIMA Daatset](Real_data_Sample.png)
+
+
+Below is a table displaying a subset of the  **PIMA Indian Diabetes** dataset:
+
+| Pregnancies | Glucose | BloodPressure | SkinThickness | Insulin | BMI  | DiabetesPedigreeFunction | Age | Outcome |
+|-------------|---------|---------------|---------------|---------|------|--------------------------|-----|---------|
+| 6           | 148     | 72            | 35            | 0       | 33.6 | 0.627                    | 50  | 1       |
+| 1           | 85      | 66            | 29            | 0       | 26.6 | 0.351                    | 31  | 0       |
+| 8           | 183     | 64            | 0             | 0       | 23.3 | 0.672                    | 32  | 1       |
+| 1           | 89      | 66            | 23            | 94      | 28.1 | 0.167                    | 21  | 0       |
+| 0           | 137     | 40            | 35            | 168     | 43.1 | 2.288                    | 33  | 1       |
+| 5           | 116     | 74            | 0             | 0       | 25.6 | 0.201                    | 30  | 0       |
+| 3           | 78      | 50            | 32            | 88      | 31   | 0.248                    | 26  | 1       |
+| 10          | 115     | 0             | 0             | 0       | 35.3 | 0.134                    | 29  | 0       |
+| 2           | 197     | 70            | 45            | 543     | 30.5 | 0.158                    | 53  | 1       |
+| 8           | 125     | 96            | 0             | 0       | 0    | 0.232                    | 54  | 1       |
+| 4           | 110     | 92            | 0             | 0       | 37.6 | 0.191                    | 30  | 0       |
+| 10          | 168     | 74            | 0             | 0       | 38   | 0.537                    | 34  | 1       |
+| 10          | 139     | 80            | 0             | 0       | 27.1 | 1.441                    | 57  | 0       |
+
+---
+
 
 # Generated Data using CTGAN
 
-To augment the **PIMA Indian Diabetes dataset**, we used **Conditional Generative Adversarial Networks (CTGANs)** to generate synthetic tabular data. CTGAN is specifically designed to handle tabular data and can generate high-quality synthetic data that preserves the statistical properties and distribution of the original dataset.
+To augment the **PIMA Indian Diabetes dataset**, we used **Conditional Generative Adversarial Networks (CTGANs)** to generate synthetic tabular data. CTGAN is designed specifically to handle structured datasets and is highly effective at generating realistic data that preserves the statistical properties of the original dataset.
 
-CTGAN is a type of **Generative Adversarial Network (GAN)** that is well-suited for generating synthetic data for structured datasets with both continuous and categorical features, such as those found in tabular datasets.
+CTGAN is a type of **Generative Adversarial Network (GAN)** optimized for generating synthetic data for structured, tabular datasets, such as those with continuous and categorical features.
 
 ---
 
 ## Steps for Data Generation
 
 1. **Model Setup**:  
-   The CTGAN model consists of two main components:
-   - **Generator**: Creates synthetic data samples.
-   - **Discriminator**: Evaluates how realistic the generated data is, trying to differentiate it from real data.
+   The CTGAN model consists of two components:
+   - **Generator**: The generator creates synthetic data samples.
+   - **Discriminator**: The discriminator distinguishes real data from synthetic data, helping the generator improve over time.
 
 2. **Training the CTGAN**:  
-   - The CTGAN model was trained on the **PIMA Indian Diabetes dataset** to learn the data distribution, including both the continuous and categorical features.
-   - The model was trained over several epochs, with the generator and discriminator improving their performance until synthetic data closely matched the statistical properties of the original dataset.
+   - We trained the CTGAN model on the **PIMA Indian Diabetes dataset** to learn the underlying distribution of both continuous and categorical features.
+   - The model was trained over several epochs until it produced synthetic data that closely resembles the statistical properties of the original dataset.
 
 3. **Generating Synthetic Data**:  
-   After the model was trained, we used it to generate a synthetic dataset with the same structure and number of rows as the original dataset. The generated data mimics the original dataset, maintaining both the feature distributions and the correlations between features.
+   After training, we used the model to generate synthetic data with the same structure (features and target variable) as the original dataset.
 
 4. **Evaluating the Data**:  
-   The quality of the generated data was evaluated using statistical tests such as comparing the **mean**, **variance**, and **distributions** of the features. Visualizations like **histograms** and **boxplots** were used to visually inspect how well the synthetic data matched the original.
+   The synthetic data was evaluated by comparing the statistical properties (means, variances, and distributions) of both the real and generated datasets. Visual tools such as **histograms** and **boxplots** were used to ensure the generated data closely matched the original dataset's characteristics.
 
 ---
 
 ## Benefits of Using CTGAN for Data Augmentation
 
 - **Handling Imbalanced Data**:  
-  CTGAN is especially useful in generating synthetic samples for underrepresented classes in imbalanced datasets, which helps improve model performance on minority classes.
-  
+  CTGAN can generate synthetic samples for the minority class, which can help balance imbalanced datasets and improve model performance.
+
 - **Data Distribution Preservation**:  
-  CTGAN ensures that the **correlations** between features and their **marginal distributions** are maintained, making the synthetic data highly realistic and useful for training machine learning models.
-  
-- **Privacy and Security**:  
-  Synthetic data can be used in environments where real data cannot be shared due to privacy concerns, such as healthcare or finance, without compromising sensitive information.
+  CTGAN maintains both the **correlations** between features and their **marginal distributions**, ensuring that synthetic data remains realistic and useful for model training.
+
 
 ---
 
 ## Example of Generated Data
 
-After training the CTGAN, we generated synthetic data that mirrors the structure and statistical properties of the original dataset. Below is an example of the synthetic data:
+Below is an example of the synthetic data generated by the CTGAN model. It maintains the structure and distributions of the original dataset:
 
 | Pregnancies | Glucose | BloodPressure | SkinThickness | Insulin | BMI  | DiabetesPedigreeFunction | Age | Outcome |
 |-------------|---------|---------------|---------------|---------|------|--------------------------|-----|---------|
-| 3           | 102     | 70            | 29            | 110     | 32.4 | 0.555                    | 35  | 1       |
-| 5           | 134     | 80            | 31            | 138     | 33.2 | 0.456                    | 40  | 0       |
-| 2           | 90      | 68            | 27            | 115     | 28.3 | 0.312                    | 50  | 0       |
-| 1           | 85      | 78            | 22            | 130     | 30.5 | 0.412                    | 45  | 1       |
+| 4           | 116     | 57            | 35            | 161     | 28.9 | 0.295                    | 21  | 0       |
+| 3           | 93      | 65            | 1             | 8       | 35.0 | 0.345                    | 38  | 1       |
+| 1           | 82      | 71            | 0             | 3       | 30.0 | 0.156                    | 25  | 0       |
+| 7           | 121     | 67            | 29            | 0       | 47.4 | 0.869                    | 33  | 1       |
+| 9           | 138     | 57            | 0             | 3       | 24.9 | 0.473                    | 28  | 0       |
+| 4           | 117     | 68            | 1             | 9       | 39.2 | 0.857                    | 37  | 1       |
+| 1           | 82      | 75            | 37            | 497     | 26.0 | 0.444                    | 23  | 0       |
+| 1           | 108     | 52            | 35            | 163     | 29.7 | 0.873                    | 25  | 0       |
+| 3           | 110     | 47            | 31            | 130     | 31.2 | 0.187                    | 41  | 0       |
+| 7           | 104     | 74            | 0             | 2       | 19.6 | 0.155                    | 21  | 0       |
+| 4           | 99      | 78            | 34            | 174     | 33.6 | 0.261                    | 24  | 0       |
 
-This synthetic dataset can be used to train machine learning models, validate models, and perform data augmentation tasks, providing more data for model training while respecting privacy concerns.
+This synthetic data mirrors the structure and features of the real PIMA Indian Diabetes dataset and can be used to train models, perform validation, or augment the original data.
 
 ---
 
 ## Conclusion
 
-Using **CTGAN** to generate synthetic data allows us to enhance the **PIMA Indian Diabetes dataset**, making it more suitable for training machine learning models. The generated data preserves the statistical properties of the original dataset while providing additional data for training. This approach also addresses challenges like **class imbalance** and **privacy concerns** when using sensitive real-world datasets.
+Using **CTGAN** to generate synthetic tabular data is an effective way to augment the **PIMA Indian Diabetes dataset**. This approach helps address challenges such as **class imbalance** and provides more data for model training, while also respecting **data privacy** concerns. The synthetic data generated by CTGAN retains the statistical properties and correlations of the original dataset, making it highly useful for machine learning tasks.
 
 ---
 
 ## References
 
 - [Conditional Generative Adversarial Networks (CTGAN)](https://arxiv.org/abs/1703.06490)
-- [PIMA Indian Diabetes Dataset - UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/diabetes)
